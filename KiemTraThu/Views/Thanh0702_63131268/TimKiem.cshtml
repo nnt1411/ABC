@@ -1,0 +1,38 @@
+﻿@model IEnumerable<KiemTraThu.Models.SinhVien>
+
+<div>
+    <h1>Tìm kiếm</h1>
+
+    <form action="/Thanh0702_63131268/TimKiem" method="post">
+        <input type="text" name="maSV" placeholder="Mã sinh viên" />
+        <input type="text" name="tenSV" placeholder="Tên sinh viên" />
+        <input type="submit" value="Tìm kiếm" />
+    </form>
+
+    @if (Model != null && Model.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Mã sinh viên</th>
+                    <th>Họ sinh viên</th>
+                    <th>Tên sinh viên</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var sinhVien in Model)
+                {
+                    <tr>
+                        <td>@sinhVien.MaSV</td>
+                        <td>@sinhVien.HoSV</td>
+                        <td>@sinhVien.TenSV</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Không tìm thấy kết quả nào.</p>
+    }
+</div>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<KiemTraThu.Models.SinhVien>
+
+@{
+    ViewBag.Title = "Danh sách sinh viên";
+}
+
+<h2>Danh sách sinh viên</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create") |
+    @Html.ActionLink("Giới Thiệu", "GioiThieu_63131268") |
+    @Html.ActionLink("Danh Sách", "Index") |
+    @Html.ActionLink("Tìm Kiếm", "TimKiem")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaSV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoSV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenSV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgaySinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GioiTinh)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaSV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoSV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgaySinh)
+            </td>
+            <td>
+                @(item.GioiTinh == true ? "Nam" : "Nữ")
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.MaSV })
+            </td>
+        </tr>
+    }
+
+</table>
